@@ -47,7 +47,7 @@ const pageBlocks = [
 ];
 
 const ReusableContactForm = () => (
-  <form action="https://formspree.io/f/mreavabe" method="POST" className="space-y-6">
+  <form action="https://formspree.io/f/mreavabe" method="POST" target="_blank" className="space-y-6">
     <div className="space-y-6 text-left">
       <div>
         <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
@@ -58,7 +58,7 @@ const ReusableContactForm = () => (
           id="name"
           name="name"
           required
-          className="w-full px-4 py-3 bg-white rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
+          className="w-full px-4 py-3 bg-white text-black font-medium rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
         />
       </div>
 
@@ -71,7 +71,7 @@ const ReusableContactForm = () => (
           id="phone"
           name="phone"
           required
-          className="w-full px-4 py-3 bg-white rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
+          className="w-full px-4 py-3 bg-white text-black font-medium rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
         />
       </div>
 
@@ -83,7 +83,7 @@ const ReusableContactForm = () => (
           type="date"
           id="date"
           name="date"
-          className="w-full px-4 py-3 bg-white rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
+          className="w-full px-4 py-3 bg-white text-black font-medium rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
         />
       </div>
 
@@ -94,7 +94,7 @@ const ReusableContactForm = () => (
         <select
           id="time"
           name="time"
-          className="w-full px-4 py-3 bg-white rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
+          className="w-full px-4 py-3 bg-white text-black font-medium rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
         >
           <option value="">시간 선택</option>
           <option value="10:00~11:00">10:00~11:00</option>
@@ -116,7 +116,7 @@ const ReusableContactForm = () => (
           type="text"
           id="message"
           name="message"
-          className="w-full px-4 py-3 bg-white rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow"
+          className="w-full px-4 py-3 bg-white text-black font-medium rounded-md border border-gray-300 focus:ring-2 focus:ring-[#2C3B46] focus:border-[#2C3B46] outline-none text-base transition-shadow placeholder-gray-400"
           placeholder="ex.회사보유분 로얄층 문의, 분양가"
         />
       </div>
