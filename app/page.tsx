@@ -225,17 +225,21 @@ export default function Home() {
       {/* 
         단일 프리미엄 헤더 (스크롤 고정)
       */}
-      <div className="w-full bg-[#2C3B46] shadow-md flex justify-center sticky top-0 z-50 transition-all duration-300">
-        <div className="w-full max-w-6xl px-4 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="text-[10px] leading-tight border border-white/40 px-1 py-0.5 text-white/90 font-medium">
-              HA<br />NUL<br />CHE
-            </div>
-            <div className="text-white text-xl md:text-2xl font-light tracking-tight ml-1">
-              번영로 하늘채 <span className="font-bold border border-white/60 px-1.5 py-0.5 ml-1">라크뷰</span>
-            </div>
+      <div className="w-full bg-white shadow-md flex justify-center sticky top-0 z-50 transition-all duration-300">
+        <div className="w-full max-w-6xl px-4 py-4 md:py-5 flex items-center justify-between">
+          <div className="flex items-center">
+            <h1 className="flex items-end font-[family-name:var(--font-geist-sans)]" style={{ marginTop: '2px' }}>
+              <span className="text-[22px] md:text-[25px] font-[900] tracking-[-0.08em] text-[#3b4754] leading-none block">
+                번영로 하늘채
+              </span>
+              <div className="ml-1.5 border-t-[2.5px] border-l-[2.5px] border-r-[2.5px] border-[#78a2b8] px-[7px] pt-[3px] pb-0 flex items-center" style={{ transform: 'translateY(1px)' }}>
+                <span className="text-[22px] md:text-[25px] font-[900] tracking-[-0.07em] text-[#3b4754] leading-none block">
+                  라크뷰
+                </span>
+              </div>
+            </h1>
           </div>
-          <a href="tel:010-8129-4477" className="hidden border border-white/30 px-3 py-1 text-white text-sm md:flex items-center gap-1 hover:bg-white/10 transition rounded-sm font-medium">
+          <a href="tel:010-8129-4477" className="hidden border border-[#2C3B46] px-3 md:px-4 py-1.5 text-[#2C3B46] text-sm md:flex items-center gap-1.5 hover:bg-[#2C3B46] hover:text-white transition rounded-sm font-bold">
             <Phone className="w-4 h-4" />
             분양 상담
           </a>
@@ -330,8 +334,33 @@ export default function Home() {
       </main>
 
       {/* Footer 코퍼레이트 정보 */}
-      <footer className="w-full bg-white text-gray-500 py-12 md:py-16 mt-0 border-t border-gray-200 flex justify-center pb-28 md:pb-36 relative z-10">
-        <div className="w-full max-w-[768px] px-6 text-[11px] md:text-xs leading-[1.8] break-keep">
+      <footer className="w-full bg-white border-t border-gray-200 flex flex-col items-center pb-28 md:pb-36 relative z-10">
+
+        {/* 파트너스 배너 (1번 사진 완벽 구현) */}
+        <div className="w-full bg-[#202428] flex justify-center py-3.5 md:py-5 border-b border-[#2c333a]">
+          <div className="w-full max-w-6xl px-4 flex flex-row flex-wrap items-center justify-center gap-x-5 md:gap-x-10 gap-y-2">
+            <div className="flex items-center">
+              <span className="text-[#a1a1aa] mr-2 text-[12px] md:text-[14px]">시행위탁</span>
+              <span className="text-white font-[900] tracking-tight text-[15px] md:text-lg">성지디앤디</span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-[#a1a1aa] mr-2 text-[12px] md:text-[14px]">시행</span>
+              <span className="text-white font-[900] tracking-tight flex items-center text-[15px] md:text-lg">
+                <span className="text-xl md:text-2xl mr-1 leading-none inline-block text-white/90" style={{ transform: 'translateY(-1px)' }}>❁</span>
+                무궁화신탁
+              </span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-[#a1a1aa] mr-2 text-[12px] md:text-[14px]">시공</span>
+              <span className="text-white font-[900] tracking-tight flex items-center text-[15px] md:text-lg font-sans">
+                <span className="text-[14px] md:text-[16px] mr-1.5 leading-none inline-block font-sans text-white/90 transform scale-125" style={{ transform: 'translateY(-1px) scale(1.1)' }}>❖</span>
+                코오롱글로벌
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full max-w-[768px] px-6 text-[11px] md:text-xs leading-[1.8] break-keep pt-10 md:pt-14 text-gray-500">
           <p className="font-bold text-gray-900 text-sm mb-1">홈페이지 및 파워링크 제작문의</p>
           <p className="font-medium text-gray-700 mb-6">카톡 아이디: als1502 (tel. 010-7929-4212)</p>
 
