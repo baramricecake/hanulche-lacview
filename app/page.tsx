@@ -4,7 +4,7 @@ import { Phone, ArrowRight, X } from "lucide-react";
 
 // 전체 페이지 구성 블록 정의
 const pageBlocks = [
-  { type: 'image', src: "/imgi_3_main_visual_new05.jpg" },
+  { type: 'hero', src: "/imgi_3_main_visual_new05.jpg" },
   { type: 'image', src: "/imgi_4_development_new01.jpg" },
   { type: 'image', src: "/imgi_7_main_visual_new04.jpg" },
   { type: 'custom-banner' },
@@ -203,6 +203,32 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#e8eaed] font-[family-name:var(--font-geist-sans)] flex flex-col items-center w-full">
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        /* 강력한 폼 텍스트 색상 강제 오버라이드 (iOS Safari 등 기기 파편화 방지) */
+        input, select, textarea {
+          color: #000000 !important;
+          -webkit-text-fill-color: #000000 !important;
+          opacity: 1 !important;
+          font-weight: 800 !important;
+        }
+        input::placeholder, textarea::placeholder {
+          color: #9ca3af !important;
+          -webkit-text-fill-color: #9ca3af !important;
+          font-weight: 500 !important;
+        }
+        @keyframes slowZoom {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.1); }
+        }
+        @keyframes shimmerSlide {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .animate-shimmer {
+          animation: shimmerSlide 2.5s infinite;
+        }
+      `}} />
 
       {/* 팝업 모달 */}
       {showPopup && (
@@ -251,9 +277,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full bg-[#f8f9fa] border-b border-gray-200 text-[#2C3B46] flex items-center justify-center py-2.5 text-sm md:text-base font-extrabold tracking-widest relative z-40">
-        <span className="w-2 h-2 rounded-full bg-[#2C3B46] animate-pulse mr-2"></span>
-        선착순 동·호 지정 계약 중 !
+      <div className="w-full relative overflow-hidden bg-gradient-to-r from-[#1a2329] via-[#2C3B46] to-[#1a2329] text-white flex items-center justify-center py-3.5 text-sm md:text-base font-extrabold tracking-widest z-40 shadow-inner group cursor-pointer hover:via-[#3b4b59] transition-colors duration-500">
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-[100%] animate-shimmer"></div>
+        <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse mr-2.5 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
+        <span className="tracking-[0.2em] drop-shadow-md">선착순 동·호 지정 계약 중 !</span>
       </div>
 
       {/* 
@@ -291,6 +318,47 @@ export default function Home() {
 
                   <div className="w-full max-w-[600px] border-t border-dashed border-gray-300 pt-10">
                     <ReusableContactForm />
+                  </div>
+                </div>
+              );
+            }
+
+            // 메인 히어로 섹션 (인터랙션 및 디자인 추가)
+            if (block.type === 'hero') {
+              return (
+                <div key={`block-${idx}`} className="w-full relative overflow-hidden bg-black flex flex-col items-center justify-center min-h-[60vh] md:min-h-[80vh]">
+                  {/* 배경 이미지 애니메이션 효과 (서서히 줌인) */}
+                  <div className="absolute inset-0 z-0 overflow-hidden">
+                    <img src={block.src} alt="울산 번영로 하늘채 라크뷰 메인 뷰" className="w-full h-full object-cover opacity-60" style={{ transformOrigin: 'center center', animation: 'slowZoom 20s infinite alternate ease-in-out' }} />
+                  </div>
+
+                  {/* 그라데이션 오버레이 (위/아래 어둡게) */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 z-10 pointer-events-none"></div>
+
+                  {/* 메인 타이포그래피 (페이드인 & 슬라이드업) */}
+                  <div className="relative z-20 flex flex-col items-center justify-center w-full px-4 text-center mt-[-10vh]">
+                    <h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-light mb-4 md:mb-6 tracking-tight drop-shadow-2xl animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both" style={{ animationDelay: '300ms' }}>
+                      약 5천여세대 <span className="font-bold">新주거타운</span>의 시작!
+                    </h2>
+
+                    <div className="flex items-center justify-center animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both" style={{ animationDelay: '600ms' }}>
+                      <span className="text-white/90 text-xl md:text-3xl font-light tracking-wide mr-2 drop-shadow-md">
+                        번영로 하늘채
+                      </span>
+                      <div className="border border-white/60 bg-white/10 backdrop-blur-sm px-3 md:px-4 py-1 mx-1 shadow-[0_0_15px_rgba(255,255,255,0.2)] flex items-center">
+                        <span className="text-white text-2xl md:text-4xl font-[900] tracking-widest drop-shadow-lg leading-none pt-1">
+                          라크뷰
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 마우스 스크롤 유도 애니메이션 */}
+                  <div className="absolute bottom-10 md:bottom-16 z-20 flex flex-col items-center opacity-80 animate-in fade-in duration-1000 delay-1000 fill-mode-both">
+                    <span className="text-white/70 text-[10px] md:text-xs mb-2 tracking-widest uppercase font-mono animate-pulse">Scroll Down</span>
+                    <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+                      <div className="w-1.5 h-2.5 bg-white rounded-full animate-bounce mt-1"></div>
+                    </div>
                   </div>
                 </div>
               );
